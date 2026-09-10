@@ -1,6 +1,3 @@
-"use client";
-
-import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
 import { servicesData } from "@/data/servicesData";
 import {
@@ -18,10 +15,20 @@ import {
   Zap,
 } from "lucide-react";
 
-export default function ServiceDetailPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
+export async function generateStaticParams() {
+  return servicesData.map((s) => ({
+    slug: s.slug,
+  }));
+}
 
+interface ServiceDetailPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
+  const { slug } = params;
   const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
