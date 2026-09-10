@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./ThemeToggle";
 import { DiscoveryModal } from "./DiscoveryModal";
 import { ClientPortalModal } from "./ClientPortalModal";
 import {
@@ -15,13 +14,8 @@ import {
   ChevronDown,
   Menu,
   X,
-  Building2,
-  Users,
-  Code2,
-  Briefcase,
   Calendar,
   Lock,
-  MapPin,
   ArrowRight,
 } from "lucide-react";
 
@@ -87,7 +81,7 @@ export function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "glass-nav py-3 shadow-lg"
+            ? "glass-nav py-3 shadow-sm bg-white/90 backdrop-blur-md"
             : "bg-transparent py-5"
         }`}
       >
@@ -103,10 +97,10 @@ export function Header() {
                 Q
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                  Qorvane<span className="text-brand-600 dark:text-brand-400">.Labs</span>
+                <span className="text-lg font-bold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">
+                  Qorvane<span className="text-brand-600">.Labs</span>
                 </span>
-                <span className="text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-wider">
+                <span className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">
                   Digital Engineering Hub
                 </span>
               </div>
@@ -123,8 +117,8 @@ export function Header() {
                 <button
                   className={`flex items-center space-x-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                     pathname?.startsWith("/services")
-                      ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
-                      : "text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400"
+                      ? "text-brand-600 bg-brand-500/10"
+                      : "text-slate-700 hover:text-brand-600"
                   }`}
                 >
                   <span>Services</span>
@@ -138,15 +132,15 @@ export function Header() {
                 {/* Mega Dropdown Menu */}
                 {activeMenu === "services" && (
                   <div className="absolute top-full left-0 w-[540px] pt-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="p-4 rounded-2xl glass-card border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-2xl grid grid-cols-1 gap-2">
-                      <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    <div className="p-4 rounded-2xl glass-card border border-slate-200 bg-white/95 backdrop-blur-xl shadow-2xl grid grid-cols-1 gap-2">
+                      <div className="px-3 py-1.5 border-b border-slate-100 flex items-center justify-between">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                           Engineering Capabilities
                         </span>
                         <Link
                           href="/services"
                           onClick={() => setActiveMenu(null)}
-                          className="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1"
+                          className="text-xs font-semibold text-brand-600 hover:underline flex items-center gap-1"
                         >
                           View All <ArrowRight className="w-3 h-3" />
                         </Link>
@@ -159,16 +153,16 @@ export function Header() {
                               key={item.href}
                               href={item.href}
                               onClick={() => setActiveMenu(null)}
-                              className="p-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/80 transition-colors group/item flex items-start space-x-3"
+                              className="p-3 rounded-xl hover:bg-slate-100/80 transition-colors group/item flex items-start space-x-3"
                             >
-                              <div className="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                              <div className="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
                                 <IconComp className="w-4 h-4" />
                               </div>
                               <div>
-                                <h4 className="text-xs font-semibold text-slate-900 dark:text-white group-hover/item:text-brand-600 dark:group-hover/item:text-brand-400 transition-colors">
+                                <h4 className="text-xs font-semibold text-slate-900 group-hover/item:text-brand-600 transition-colors">
                                   {item.title}
                                 </h4>
-                                <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-0.5">
+                                <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5">
                                   {item.desc}
                                 </p>
                               </div>
@@ -186,8 +180,8 @@ export function Header() {
                 href="/solutions"
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === "/solutions"
-                    ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
-                    : "text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400"
+                    ? "text-brand-600 bg-brand-500/10"
+                    : "text-slate-700 hover:text-brand-600"
                 }`}
               >
                 Engagement Models
@@ -198,8 +192,8 @@ export function Header() {
                 href="/portfolio"
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === "/portfolio"
-                    ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
-                    : "text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400"
+                    ? "text-brand-600 bg-brand-500/10"
+                    : "text-slate-700 hover:text-brand-600"
                 }`}
               >
                 Case Studies
@@ -210,8 +204,8 @@ export function Header() {
                 href="/about"
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === "/about"
-                    ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
-                    : "text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400"
+                    ? "text-brand-600 bg-brand-500/10"
+                    : "text-slate-700 hover:text-brand-600"
                 }`}
               >
                 Dehradun Hub
@@ -222,8 +216,8 @@ export function Header() {
                 href="/contact"
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === "/contact"
-                    ? "text-brand-600 dark:text-brand-400 bg-brand-500/10"
-                    : "text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400"
+                    ? "text-brand-600 bg-brand-500/10"
+                    : "text-slate-700 hover:text-brand-600"
                 }`}
               >
                 Contact
@@ -232,15 +226,12 @@ export function Header() {
 
             {/* Header Utilities */}
             <div className="hidden sm:flex items-center space-x-3">
-              {/* Dark/Light Mode Switcher */}
-              <ThemeToggle />
-
               {/* Client Portal Button */}
               <button
                 onClick={() => setIsPortalOpen(true)}
-                className="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-600 flex items-center space-x-1.5 transition-all shadow-sm"
+                className="px-3.5 py-2 rounded-xl border border-slate-200 bg-white/80 text-xs font-semibold text-slate-700 hover:border-slate-400 flex items-center space-x-1.5 transition-all shadow-sm"
               >
-                <Lock className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
+                <Lock className="w-3.5 h-3.5 text-brand-600" />
                 <span>Client Portal</span>
               </button>
 
@@ -256,10 +247,9 @@ export function Header() {
 
             {/* Mobile Hamburger Toggle */}
             <div className="flex sm:hidden items-center space-x-2">
-              <ThemeToggle />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200"
+                className="p-2.5 rounded-xl border border-slate-200 text-slate-700"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -269,11 +259,11 @@ export function Header() {
 
         {/* Mobile Slide-down Menu */}
         {mobileMenuOpen && (
-          <div className="sm:hidden glass-card border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-4 pt-4 pb-6 space-y-3 mt-3 animate-in fade-in duration-200">
+          <div className="sm:hidden glass-card border-b border-slate-200 bg-white/95 px-4 pt-4 pb-6 space-y-3 mt-3 animate-in fade-in duration-200">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 hover:bg-slate-100"
             >
               Home
             </Link>
@@ -287,7 +277,7 @@ export function Header() {
                   key={s.href}
                   href={s.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-brand-500"
+                  className="block px-3 py-1.5 text-xs text-slate-700 hover:text-brand-500"
                 >
                   {s.title}
                 </Link>
@@ -297,7 +287,7 @@ export function Header() {
             <Link
               href="/solutions"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 hover:bg-slate-100"
             >
               Engagement Models
             </Link>
@@ -305,7 +295,7 @@ export function Header() {
             <Link
               href="/portfolio"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 hover:bg-slate-100"
             >
               Case Studies
             </Link>
@@ -313,7 +303,7 @@ export function Header() {
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 hover:bg-slate-100"
             >
               Dehradun Hub
             </Link>
@@ -321,18 +311,18 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-900 hover:bg-slate-100"
             >
               Contact
             </Link>
 
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-col space-y-2">
+            <div className="pt-3 border-t border-slate-200 flex flex-col space-y-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setIsPortalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center justify-center space-x-2"
+                className="w-full py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center justify-center space-x-2"
               >
                 <Lock className="w-3.5 h-3.5" />
                 <span>Client Portal</span>

@@ -22,21 +22,21 @@ export function TechTicker() {
   const marqueeList = [...techStack, ...techStack];
 
   return (
-    <div className="w-full overflow-hidden bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800/80 py-4 relative">
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-100 dark:from-[#090d16] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-100 dark:from-[#090d16] to-transparent z-10 pointer-events-none" />
+    <div className="w-full overflow-hidden bg-slate-100/70 border-y border-slate-200 py-4 relative">
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-100 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-100 to-transparent z-10 pointer-events-none" />
 
       <div className="flex w-max animate-infinite-scroll space-x-6">
         {marqueeList.map((tech, index) => (
           <div
             key={`${tech.name}-${index}`}
-            className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 shadow-sm shrink-0"
+            className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200/80 shadow-sm shrink-0"
           >
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-            <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
+            <span className="text-xs font-bold text-slate-800">
               {tech.name}
             </span>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900">
+            <span className="text-[10px] text-slate-500 font-medium px-2 py-0.5 rounded bg-slate-100">
               {tech.category}
             </span>
           </div>

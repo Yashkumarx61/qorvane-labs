@@ -79,7 +79,7 @@ export function HeroBackground() {
 
       {/* 2. Geometric Constellation & Wireframe SVG Layer (z-0) */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-65 dark:opacity-40 pointer-events-none z-0"
+        className="absolute inset-0 w-full h-full opacity-65 pointer-events-none z-0"
         xmlns="http://www.w3.org/2000/svg"
       >
         <line x1="12%" y1="22%" x2="24%" y2="48%" stroke="rgba(14, 165, 233, 0.22)" strokeWidth="1" strokeDasharray="4 4" />
@@ -119,20 +119,20 @@ export function HeroBackground() {
               repeatType: "mirror",
               ease: "easeInOut",
             }}
-            className={`absolute ${card.className} p-4 rounded-3xl backdrop-blur-md border border-white/80 dark:border-slate-700/60 shadow-[0_8px_32px_0_rgba(0,180,216,0.12)] flex flex-col justify-between overflow-hidden`}
+            className={`absolute ${card.className} p-4 rounded-3xl backdrop-blur-md border border-white/80 shadow-[0_8px_32px_0_rgba(0,180,216,0.12)] flex flex-col justify-between overflow-hidden`}
             style={{
               background:
                 "linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(204, 251, 241, 0.3) 100%)",
             }}
           >
-            <div className="w-8 h-8 rounded-xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-md flex items-center justify-center shadow-sm">
+            <div className="w-8 h-8 rounded-xl bg-white/70 backdrop-blur-md flex items-center justify-center shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse" />
             </div>
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-600">
                 {card.title}
               </div>
-              <div className="text-sm font-extrabold text-slate-900 dark:text-white">
+              <div className="text-sm font-extrabold text-slate-900">
                 {card.stat}
               </div>
             </div>

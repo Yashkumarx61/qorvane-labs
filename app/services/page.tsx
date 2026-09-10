@@ -17,13 +17,13 @@ export default function ServicesPage() {
     <div className="pt-32 pb-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-600 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20">
             Services & Capabilities
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
             Enterprise Digital Engineering Services
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600">
             From modern Next.js web applications to custom AI pipelines and 24/7 cloud management, explore our full suite of technical capabilities.
           </p>
         </div>
@@ -35,11 +35,11 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.slug}
-                className="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                className="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 <div className={`lg:col-span-7 space-y-6 ${!isEven ? "lg:order-2" : ""}`}>
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 flex items-center justify-center shrink-0">
                       {service.slug === "web-development" && <Globe className="w-6 h-6" />}
                       {service.slug === "mobile-apps" && <Smartphone className="w-6 h-6" />}
                       {service.slug === "ai-data" && <Sparkles className="w-6 h-6" />}
@@ -47,16 +47,16 @@ export default function ServicesPage() {
                       {service.slug === "managed-it" && <ShieldCheck className="w-6 h-6" />}
                     </div>
                     <div>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
                         {service.title}
                       </h2>
-                      <span className="text-xs font-semibold text-brand-600 dark:text-brand-400">
+                      <span className="text-xs font-semibold text-brand-600">
                         {service.metrics}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {service.fullDesc}
                   </p>
 
@@ -66,7 +66,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {service.features.map((feat) => (
-                        <div key={feat} className="flex items-center space-x-2 text-xs text-slate-700 dark:text-slate-300">
+                        <div key={feat} className="flex items-center space-x-2 text-xs text-slate-700">
                           <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                           <span>{feat}</span>
                         </div>

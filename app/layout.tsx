@@ -42,14 +42,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased bg-slate-50 dark:bg-[#090d16] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
+    <html lang="en" className="light" style={{ colorScheme: "light" }}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#F8FAFC] text-slate-900 min-h-screen flex flex-col`}>
+        <ThemeProvider>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

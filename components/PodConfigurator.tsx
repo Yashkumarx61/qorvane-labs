@@ -81,27 +81,27 @@ export function PodConfigurator() {
   const totalContractUSD = totalMonthlyUSD * durationMonths;
 
   return (
-    <div className="glass-card rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-2xl">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+    <div className="glass-card rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xl bg-white">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-200 gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
             Plug-and-Play Pod Configurator
           </span>
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">
+          <h3 className="text-2xl font-bold text-slate-900 mt-1">
             Build Your Custom Engineering Pod
           </h3>
-          <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-600 mt-1">
             Scale up or down dedicated talent managed out of our Dehradun IT Park hub.
           </p>
         </div>
 
         {/* Currency Switcher */}
         <div className="flex items-center space-x-2">
-          <div className="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
             <button
               onClick={() => setCurrency("INR")}
               className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                currency === "INR" ? "bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm" : "text-slate-500"
+                currency === "INR" ? "bg-white text-brand-600 shadow-sm" : "text-slate-500"
               }`}
             >
               ₹ INR
@@ -109,7 +109,7 @@ export function PodConfigurator() {
             <button
               onClick={() => setCurrency("USD")}
               className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                currency === "USD" ? "bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-sm" : "text-slate-500"
+                currency === "USD" ? "bg-white text-brand-600 shadow-sm" : "text-slate-500"
               }`}
             >
               $ USD
@@ -133,22 +133,22 @@ export function PodConfigurator() {
                 key={key}
                 className={`p-4 rounded-2xl border flex items-center justify-between transition-all ${
                   count > 0
-                    ? "border-brand-500/50 bg-brand-500/5 dark:bg-brand-500/10"
-                    : "border-slate-200 dark:border-slate-800"
+                    ? "border-brand-500/50 bg-brand-500/5"
+                    : "border-slate-200"
                 }`}
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 flex items-center justify-center shrink-0">
                     <IconComp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h5 className="text-sm font-bold text-slate-900 dark:text-white">
+                    <h5 className="text-sm font-bold text-slate-900">
                       {info.title}
                     </h5>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    <p className="text-xs text-slate-500 mt-0.5">
                       {info.desc}
                     </p>
-                    <span className="text-[11px] font-semibold text-brand-600 dark:text-brand-400 mt-1 block">
+                    <span className="text-[11px] font-semibold text-brand-600 mt-1 block">
                       {currency === "INR"
                         ? `₹${info.monthlyINR.toLocaleString("en-IN")} / mo per dev`
                         : `$${info.monthlyUSD.toLocaleString("en-US")} / mo per dev`}
@@ -156,15 +156,15 @@ export function PodConfigurator() {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 bg-white dark:bg-slate-900 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm shrink-0">
+                <div className="flex items-center space-x-3 bg-white p-1.5 rounded-xl border border-slate-200 shadow-sm shrink-0">
                   <button
                     onClick={() => updateRoleCount(key, -1)}
                     disabled={count === 0}
-                    className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 disabled:opacity-40 flex items-center justify-center transition-colors"
+                    className="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-40 flex items-center justify-center transition-colors"
                   >
                     <Minus className="w-3.5 h-3.5" />
                   </button>
-                  <span className="text-sm font-bold text-slate-900 dark:text-white min-w-[20px] text-center">
+                  <span className="text-sm font-bold text-slate-900 min-w-[20px] text-center">
                     {count}
                   </span>
                   <button
@@ -179,7 +179,7 @@ export function PodConfigurator() {
           })}
 
           {/* Duration Selector */}
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="pt-4 border-t border-slate-200">
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
               Engagement Commitment Duration ({durationMonths} Months)
             </label>
@@ -191,7 +191,7 @@ export function PodConfigurator() {
                   className={`py-2 rounded-xl text-xs font-bold border transition-all ${
                     durationMonths === m
                       ? "border-brand-500 bg-brand-600 text-white shadow-md"
-                      : "border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-400"
+                      : "border-slate-200 text-slate-700 hover:border-slate-400"
                   }`}
                 >
                   {m} {m === 1 ? "Month" : "Months"}
@@ -202,23 +202,23 @@ export function PodConfigurator() {
         </div>
 
         {/* Pod Summary Card */}
-        <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-950 text-white border border-slate-800 flex flex-col justify-between shadow-2xl">
+        <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between shadow-2xl">
           <div className="space-y-4">
             <div className="text-xs font-bold uppercase tracking-wider text-tealAccent-400">
               Pod Capacity & Velocity Summary
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div className="p-4 rounded-xl bg-slate-800 border border-slate-700 space-y-3">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400">Total Engineering Capacity:</span>
+                <span className="text-slate-300">Total Engineering Capacity:</span>
                 <span className="font-bold text-white text-sm">{totalEngineers} Full-Time Devs</span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400">Agile Sprint Velocity:</span>
+                <span className="text-slate-300">Agile Sprint Velocity:</span>
                 <span className="font-bold text-tealAccent-400">{totalEngineers * 35} Story Pts / Mo</span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400">Management & QA Lead:</span>
+                <span className="text-slate-300">Management & QA Lead:</span>
                 <span className="font-bold text-emerald-400">Included Free</span>
               </div>
             </div>

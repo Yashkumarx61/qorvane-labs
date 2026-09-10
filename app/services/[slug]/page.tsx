@@ -1,11 +1,6 @@
 import Link from "next/link";
 import { servicesData } from "@/data/servicesData";
 import {
-  Globe,
-  Smartphone,
-  Sparkles,
-  BarChart3,
-  ShieldCheck,
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
@@ -50,7 +45,7 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
         <div>
           <Link
             href="/services"
-            className="inline-flex items-center space-x-1.5 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline"
+            className="inline-flex items-center space-x-1.5 text-xs font-semibold text-brand-600 hover:underline"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to All Capabilities</span>
@@ -59,19 +54,19 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
 
         {/* Header section */}
         <div className="space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-semibold uppercase tracking-wider border border-brand-500/20">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 text-xs font-semibold uppercase tracking-wider border border-brand-500/20">
             <span>{service.badge || "Core Service"}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
             {service.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
             {service.fullDesc}
           </p>
 
-          <div className="p-4 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-sm font-semibold flex items-center space-x-2">
+          <div className="p-4 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-brand-600 text-sm font-semibold flex items-center space-x-2">
             <Zap className="w-5 h-5 shrink-0" />
             <span>Benchmark SLA: {service.metrics}</span>
           </div>
@@ -80,13 +75,13 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
         {/* Detailed Breakdown Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Capabilities */}
-          <div className="glass-card p-8 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="glass-card p-8 rounded-3xl border border-slate-200 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
               <Code2 className="w-5 h-5 text-brand-500" /> Key Engineering Features
             </h3>
             <ul className="space-y-3">
               {service.features.map((f) => (
-                <li key={f} className="flex items-start space-x-2.5 text-xs text-slate-700 dark:text-slate-300">
+                <li key={f} className="flex items-start space-x-2.5 text-xs text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                   <span>{f}</span>
                 </li>
@@ -95,13 +90,13 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
           </div>
 
           {/* Deliverables */}
-          <div className="glass-card p-8 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <div className="glass-card p-8 rounded-3xl border border-slate-200 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
               <Terminal className="w-5 h-5 text-tealAccent-500" /> Deliverables & Assets
             </h3>
             <ul className="space-y-3">
               {service.deliverables.map((d) => (
-                <li key={d} className="flex items-start space-x-2.5 text-xs text-slate-700 dark:text-slate-300">
+                <li key={d} className="flex items-start space-x-2.5 text-xs text-slate-700">
                   <Check className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
                   <span>{d}</span>
                 </li>

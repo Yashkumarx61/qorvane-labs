@@ -39,7 +39,7 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-md"
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-md"
           />
 
           {/* Modal Container */}
@@ -47,12 +47,12 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden z-10 p-6 sm:p-8"
+            className="relative w-full max-w-lg bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden z-10 p-6 sm:p-8"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -62,29 +62,29 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                 <div className="w-16 h-16 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-slate-900">
                   Discovery Call Confirmed!
                 </h3>
-                <p className="text-slate-600 dark:text-slate-300 text-sm max-w-xs mx-auto">
-                  Our solution architect from the Dehradun engineering hub will send a calendar invite shortly to <span className="font-semibold text-brand-600 dark:text-brand-400">{formData.email}</span>.
+                <p className="text-slate-600 text-sm max-w-xs mx-auto">
+                  Our solution architect from the Dehradun engineering hub will send a calendar invite shortly to <span className="font-semibold text-brand-600">{formData.email}</span>.
                 </p>
               </div>
             ) : (
               <div>
-                <div className="flex items-center space-x-2 text-brand-600 dark:text-brand-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                <div className="flex items-center space-x-2 text-brand-600 text-xs font-semibold uppercase tracking-wider mb-2">
                   <Sparkles className="w-4 h-4" />
                   <span>30-Min Strategy Consultation</span>
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
+                <h2 className="text-2xl font-bold text-slate-900 mb-1">
                   Schedule a Discovery Call
                 </h2>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                <p className="text-sm text-slate-600 mb-6">
                   Discuss project timelines, technical feasibility, and team pod allocation with Qorvane Labs leadership.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
                       Full Name *
                     </label>
                     <input
@@ -93,13 +93,13 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                       placeholder="e.g. Vikram Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-xs font-medium text-slate-700 mb-1">
                         Work Email *
                       </label>
                       <input
@@ -108,11 +108,11 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                         placeholder="vikram@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      <label className="block text-xs font-medium text-slate-700 mb-1">
                         Phone / WhatsApp
                       </label>
                       <input
@@ -120,19 +120,19 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
                       Primary Area of Interest
                     </label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     >
                       <option value="Web Development">Custom Web Development</option>
                       <option value="Mobile App Engineering">Mobile App Engineering</option>
@@ -144,14 +144,14 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1 flex items-center gap-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1 flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-slate-400" />
                       Preferred Time Slot (IST)
                     </label>
                     <select
                       value={formData.preferredTime}
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     >
                       <option value="Morning (9 AM - 12 PM IST)">Morning (9:00 AM - 12:00 PM IST)</option>
                       <option value="Afternoon (12 PM - 4 PM IST)">Afternoon (12:00 PM - 4:00 PM IST)</option>
@@ -161,7 +161,7 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
                       Project Notes / Brief Summary
                     </label>
                     <textarea
@@ -169,7 +169,7 @@ export function DiscoveryModal({ isOpen, onClose }: DiscoveryModalProps) {
                       placeholder="Briefly describe your objectives, target timeline, or current stack..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                   </div>
 

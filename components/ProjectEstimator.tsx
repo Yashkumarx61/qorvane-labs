@@ -11,9 +11,8 @@ import {
   ArrowRight,
   RotateCcw,
   Send,
-  Layers,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function ProjectEstimator() {
   const [currency, setCurrency] = useState<"INR" | "USD">("INR");
@@ -95,25 +94,25 @@ export function ProjectEstimator() {
     <section id="estimator" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-brand-500/20">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-brand-500/20">
             <Calculator className="w-3.5 h-3.5" />
             <span>Interactive Project Estimator</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Estimate Your Project Scope, Budget & Delivery Timeline
           </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+          <p className="mt-3 text-slate-600 text-sm sm:text-base">
             Get an instant, transparent estimate for your custom web app, mobile build, or AI integration. Tailored for both Indian SMBs and global clients.
           </p>
 
           {/* Currency Switcher */}
-          <div className="mt-6 inline-flex items-center p-1 rounded-xl bg-slate-200/80 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700">
+          <div className="mt-6 inline-flex items-center p-1 rounded-xl bg-slate-200/80 border border-slate-300">
             <button
               onClick={() => setCurrency("INR")}
               className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 currency === "INR"
-                  ? "bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-md"
-                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-white text-brand-600 shadow-md"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
               <IndianRupee className="w-3.5 h-3.5" />
@@ -123,8 +122,8 @@ export function ProjectEstimator() {
               onClick={() => setCurrency("USD")}
               className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 currency === "USD"
-                  ? "bg-white dark:bg-slate-900 text-brand-600 dark:text-brand-400 shadow-md"
-                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-white text-brand-600 shadow-md"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
               <DollarSign className="w-3.5 h-3.5" />
@@ -134,38 +133,38 @@ export function ProjectEstimator() {
         </div>
 
         {/* Main Interactive Card */}
-        <div className="glass-card rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="glass-card rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white">
           {/* Left Column: Interactive Steps */}
           <div className="lg:col-span-7 space-y-6">
             {/* Step Indicators */}
-            <div className="flex items-center space-x-2 border-b border-slate-200 dark:border-slate-800 pb-4 text-xs font-semibold text-slate-500">
+            <div className="flex items-center space-x-2 border-b border-slate-200 pb-4 text-xs font-semibold text-slate-500">
               <button
                 onClick={() => setStep(1)}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-colors ${
-                  step === 1 ? "bg-brand-500/10 text-brand-600 dark:text-brand-400" : ""
+                  step === 1 ? "bg-brand-500/10 text-brand-600" : ""
                 }`}
               >
-                <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[10px]">1</span>
+                <span className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">1</span>
                 <span>Project Scope</span>
               </button>
               <span>/</span>
               <button
                 onClick={() => setStep(2)}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-colors ${
-                  step === 2 ? "bg-brand-500/10 text-brand-600 dark:text-brand-400" : ""
+                  step === 2 ? "bg-brand-500/10 text-brand-600" : ""
                 }`}
               >
-                <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[10px]">2</span>
+                <span className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">2</span>
                 <span>Key Modules</span>
               </button>
               <span>/</span>
               <button
                 onClick={() => setStep(3)}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-colors ${
-                  step === 3 ? "bg-brand-500/10 text-brand-600 dark:text-brand-400" : ""
+                  step === 3 ? "bg-brand-500/10 text-brand-600" : ""
                 }`}
               >
-                <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[10px]">3</span>
+                <span className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">3</span>
                 <span>Velocity</span>
               </button>
             </div>
@@ -173,7 +172,7 @@ export function ProjectEstimator() {
             {/* Step 1: Core Type */}
             {step === 1 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                <h3 className="text-base font-bold text-slate-900">
                   Step 1: Select Primary Deliverable
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -190,18 +189,18 @@ export function ProjectEstimator() {
                       className={`p-4 rounded-2xl border text-left transition-all ${
                         projectType === item.id
                           ? "border-brand-500 bg-brand-500/10 shadow-md"
-                          : "border-slate-200 dark:border-slate-800 hover:border-slate-400"
+                          : "border-slate-200 hover:border-slate-400"
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                        <h4 className="text-sm font-bold text-slate-900">
                           {item.title}
                         </h4>
                         {projectType === item.id && (
-                          <CheckCircle2 className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+                          <CheckCircle2 className="w-4 h-4 text-brand-600" />
                         )}
                       </div>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{item.sub}</p>
+                      <p className="text-xs text-slate-500 mt-1">{item.sub}</p>
                     </button>
                   ))}
                 </div>
@@ -220,7 +219,7 @@ export function ProjectEstimator() {
             {/* Step 2: Feature Modules */}
             {step === 2 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                <h3 className="text-base font-bold text-slate-900">
                   Step 2: Add Modular Capability Requirements
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -233,11 +232,11 @@ export function ProjectEstimator() {
                         className={`p-3.5 rounded-xl border text-left flex items-start justify-between transition-all ${
                           isChecked
                             ? "border-brand-500 bg-brand-500/10 shadow-sm"
-                            : "border-slate-200 dark:border-slate-800 hover:border-slate-400"
+                            : "border-slate-200 hover:border-slate-400"
                         }`}
                       >
                         <div>
-                          <span className="text-xs font-semibold text-slate-900 dark:text-white block">
+                          <span className="text-xs font-semibold text-slate-900 block">
                             {info.title}
                           </span>
                           <span className="text-[11px] text-slate-500 mt-0.5 block">
@@ -246,7 +245,7 @@ export function ProjectEstimator() {
                         </div>
                         <div
                           className={`w-5 h-5 rounded-md border flex items-center justify-center ${
-                            isChecked ? "bg-brand-600 border-brand-600 text-white" : "border-slate-300 dark:border-slate-700"
+                            isChecked ? "bg-brand-600 border-brand-600 text-white" : "border-slate-300"
                           }`}
                         >
                           {isChecked && <CheckCircle2 className="w-3.5 h-3.5" />}
@@ -258,7 +257,7 @@ export function ProjectEstimator() {
                 <div className="pt-2 flex justify-between">
                   <button
                     onClick={() => setStep(1)}
-                    className="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    className="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100"
                   >
                     Back
                   </button>
@@ -276,7 +275,7 @@ export function ProjectEstimator() {
             {/* Step 3: Velocity & Speed */}
             {step === 3 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                <h3 className="text-base font-bold text-slate-900">
                   Step 3: Delivery Speed & Team Allocation
                 </h3>
                 <div className="space-y-3">
@@ -287,21 +286,21 @@ export function ProjectEstimator() {
                       className={`w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all ${
                         timelineSpeed === key
                           ? "border-brand-500 bg-brand-500/10 shadow-sm"
-                          : "border-slate-200 dark:border-slate-800 hover:border-slate-400"
+                          : "border-slate-200 hover:border-slate-400"
                       }`}
                     >
                       <div>
-                        <h4 className="text-xs font-bold text-slate-900 dark:text-white">
+                        <h4 className="text-xs font-bold text-slate-900">
                           {info.label}
                         </h4>
-                        <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                        <p className="text-[11px] text-slate-500 mt-0.5">
                           {key === "standard" && "Dedicated agile sprints with standard code reviews."}
                           {key === "accelerated" && "Parallel sprint tracks to fast-track launch."}
                           {key === "pod" && "Dedicated Dehradun pod developers assigned solely to your project."}
                         </p>
                       </div>
                       {timelineSpeed === key && (
-                        <CheckCircle2 className="w-5 h-5 text-brand-600 dark:text-brand-400 shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-brand-600 shrink-0" />
                       )}
                     </button>
                   ))}
@@ -309,7 +308,7 @@ export function ProjectEstimator() {
                 <div className="pt-2 flex justify-between">
                   <button
                     onClick={() => setStep(2)}
-                    className="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    className="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100"
                   >
                     Back
                   </button>
