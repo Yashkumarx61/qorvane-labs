@@ -1,26 +1,72 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { siteContact } from "@/data/contactData";
 
-interface Message {
-  role: "user" | "assistant" | "system";
-  content: string;
+// Strict Zod Payload Validation Schema
+const chatMessageSchema = z.object({
+  role: z.enum(["user", "assistant", "system"]),
+  content: z.string().min(1).max(2000),
+});
+
+const chatRequestSchema = z.object({
+  messages: z.array(chatMessageSchema).min(1).max(20),
+});
+
+// Simple In-Memory Token Bucket / Sliding Window Rate Limiter
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 20; // 20 requests per window
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  if (record.count >= RATE_LIMIT_MAX) {
+    return true;
+  }
+
+  record.count += 1;
+  return false;
 }
 
 export async function POST(req: Request) {
   try {
-    const { messages }: { messages: Message[] } = await req.json();
+    // Rate limiting check by IP / Forwarded Header
+    const clientIp =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
 
-    if (!messages || !Array.isArray(messages) || messages.length === 0) {
+    if (isRateLimited(clientIp)) {
       return NextResponse.json(
-        { error: "Invalid messages array provided." },
+        { error: "Too many requests. Please slow down and try again shortly." },
+        { status: 429 }
+      );
+    }
+
+    const rawBody = await req.json();
+
+    // Validate payload against Zod schema
+    const parseResult = chatRequestSchema.safeParse(rawBody);
+
+    if (!parseResult.success) {
+      return NextResponse.json(
+        {
+          error: "Invalid request payload schema.",
+          details: parseResult.error.flatten(),
+        },
         { status: 400 }
       );
     }
 
+    const { messages } = parseResult.data;
     const lastUserMsg = messages[messages.length - 1]?.content || "";
     const lowerQuery = lastUserMsg.toLowerCase();
 
-    // Check if an external OpenAI API Key is configured in environment
+    // Check for OpenAI API Key (Must never use NEXT_PUBLIC_ prefix)
     const apiKey = process.env.OPENAI_API_KEY;
 
     if (apiKey) {
