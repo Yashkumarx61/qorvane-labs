@@ -82,7 +82,7 @@ export default function AboutPage() {
               Why Sahastradhara Road & IT Park, Dehradun?
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Dehradun is rapidly emerging as India's premier tech corridor in North India. Situated near premier institutions (IIT Roorkee, UPES, Graphic Era, DIT), our engineering center offers exceptional talent continuity, zero urban churn, and 100% focused project execution.
+              Dehradun is rapidly emerging as India&apos;s premier tech corridor in North India. Situated near premier institutions (IIT Roorkee, UPES, Graphic Era, DIT), our engineering center offers exceptional talent continuity, zero urban churn, and 100% focused project execution.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">

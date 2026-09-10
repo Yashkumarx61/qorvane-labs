@@ -232,7 +232,7 @@ export default function PortfolioPage() {
                 <div className="p-5 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
                   <Quote className="w-6 h-6 text-brand-500" />
                   <p className="text-xs sm:text-sm italic text-slate-800 dark:text-slate-200">
-                    "{selectedCase.testimonial.quote}"
+                    &ldquo;{selectedCase.testimonial.quote}&rdquo;
                   </p>
                   <div className="text-[11px] font-bold text-slate-900 dark:text-white pt-1">
                     — {selectedCase.testimonial.author}, {selectedCase.testimonial.role}
